@@ -1,8 +1,7 @@
 package ru.practicum.user.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -10,7 +9,9 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "users", schema = "public")
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
+@Getter
+@Setter
+@ToString
 public class User {
 
     @Id

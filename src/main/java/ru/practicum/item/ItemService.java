@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface ItemService {
 
-    List<Item> getItems(Long userId);
+    List<ItemDTO> getItems(Long userId);
 
-    Item addNewItem(Long userId, ItemDTO item);
+    ItemDTO addNewItem(Long userId, ItemDTO item);
 
     void deleteItem(Long userId, Long itemId);
 }

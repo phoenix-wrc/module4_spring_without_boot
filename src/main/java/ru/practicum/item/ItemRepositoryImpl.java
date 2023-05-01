@@ -10,7 +10,7 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public List<Item> findByUserId(long userId) {
-        return storage.get(userId);
+        return storage.getOrDefault(userId, Collections.emptyList());
     }
 
     @Override

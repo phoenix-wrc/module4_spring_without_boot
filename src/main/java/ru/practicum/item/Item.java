@@ -1,25 +1,27 @@
 package ru.practicum.item;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "items", schema = "public")
-@Getter @Setter @ToString
-@AllArgsConstructor @NoArgsConstructor
+@Getter
+@Setter
+@ToString
 class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "owner")
+    @Column(name = "owner_id")
     private Long userId;
 
-    @Column(nullable=false, unique=true)
+    @Column(nullable = false, unique = true)
     private String url;
 
     @ElementCollection
