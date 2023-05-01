@@ -15,9 +15,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item addNewItem(Long userId, Item item) {
-        item.setUserId(userId);
-        return repository.save(item);
+    public Item addNewItem(Long userId, ItemDTO itemDTO) {
+        itemDTO.setUserId(userId);
+        return repository.save(ItemDTOMapper.toItem(itemDTO));
     }
 
     @Override

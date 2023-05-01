@@ -1,8 +1,11 @@
 package ru.practicum.user;
 
+import ru.practicum.user.model.User;
+import ru.practicum.user.model.UserDTO;
+
 import java.util.List;
 
 interface UserService {
     List<User> getAllUsers();
-    User saveUser(User user);
+    UserDTO saveUser(UserDTO user);
 }

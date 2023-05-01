@@ -3,13 +3,15 @@ package ru.practicum.user;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.practicum.user.model.User;
+import ru.practicum.user.model.UserDTO;
+import ru.practicum.user.model.UserDTOMapper;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 class UserServiceImpl implements UserService {
-    @Autowired
     private final UserRepository repository;
 
     @Override
@@ -18,7 +20,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUser(User user) {
-        return repository.save(user);
+    public UserDTO saveUser(UserDTO user) {
+        return UserDTOMapper.toUserDTO(repository.save(UserDTOMapper.toUser(user)));
     }
 }

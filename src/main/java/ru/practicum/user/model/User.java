@@ -1,14 +1,18 @@
-package ru.practicum.user;
+package ru.practicum.user.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
 @Table(name = "users", schema = "public")
-@Data
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,4 +30,16 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserState state;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        return id != null && id.equals(((User) o).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

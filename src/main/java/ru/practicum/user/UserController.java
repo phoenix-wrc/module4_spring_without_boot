@@ -2,6 +2,8 @@ package ru.practicum.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import ru.practicum.user.model.User;
+import ru.practicum.user.model.UserDTO;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User saveNewUser(@RequestBody User user) {
+    public UserDTO saveNewUser(@RequestBody UserDTO user) {
         return userService.saveUser(user);
     }
 }
